@@ -1,4 +1,6 @@
-FROM node:18.20.4-bookworm AS build
+ARG NODE_IMAGE_TAG=18.20.4-bookworm
+
+FROM node:${NODE_IMAGE_TAG} AS build
 
 ENV PRISM_VERSION=5.10.0
 ENV DUMB_INIT_VERSION=1.2.5
@@ -15,7 +17,8 @@ RUN <<-eof
 eof
 COPY openai-openapi/openapi.yaml /app/openapi.yaml
 
-FROM gcr.io/distroless/nodejs18-debian12@sha256:78672f5dce342e7724e1f691c0573cddae9379b617d7932066077e667a8d7df0
+ARG NODE_IMAGE_TAG
+FROM node:${NODE_IMAGE_TAG}-slim
 WORKDIR /app
 COPY  --from=build /app /app
 ENTRYPOINT ["/app/dumb-init", "--", "/nodejs/bin/node"]
