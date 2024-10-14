@@ -9,8 +9,8 @@ This project leverages the OpenAPI schema from [openai/openai-openapi](https://g
 ## Usage
 
 ```bash
-❯ docker pull ghcr.io/nagomiso/openai-mock-server:nightly
-❯ docker run -it --rm -p 4010:4010 ghcr.io/nagomiso/openai-mock-server:nightly
+❯ docker pull ghcr.io/nagomiso/openai-mock-server:latest
+❯ docker run -it --rm -p 4010:4010 ghcr.io/nagomiso/openai-mock-server:latest
 ```
 
 If there are any processes you want to run before startup,
@@ -22,7 +22,7 @@ is an example of a script that patches the response content of the `POST /chat/c
 ```bash
 ❯ docker run -it --rm -p 4010:4010 \
     -v $(pwd)/docker-entrypoint.d:/docker-entrypoint.d \
-    ghcr.io/nagomiso/openai-mock-server:nightly
+    ghcr.io/nagomiso/openai-mock-server:latest
 ❯ curl -X POST \
   --url http://localhost:4010/chat/completions \
   --header 'Authorization: Bearer xxxxxx' \
