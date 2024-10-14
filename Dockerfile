@@ -37,4 +37,4 @@ WORKDIR /app
 COPY  --from=build --chown=woker:worker \
     /app /app
 ENTRYPOINT ["/app/dumb-init", "--", "/app/entrypoint.sh"]
-CMD ["/app/node_modules/.bin/prism", "mock", "-h", "0.0.0.0", "/app/openapi.yaml"]
+CMD ["/app/node_modules/.bin/prism", "mock", "-h", "0.0.0.0", "/tmp/openapi.yaml"]
