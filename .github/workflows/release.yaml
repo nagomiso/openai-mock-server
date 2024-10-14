@@ -33,6 +33,7 @@ jobs:
           git tag ${{ env.RELEASE_IMAGE_TAG }}
           git push origin ${{ env.RELEASE_IMAGE_TAG }}
       - name: Release
+        if: ${{ matrix.platform == 'linux/amd64' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
