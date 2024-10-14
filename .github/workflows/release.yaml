@@ -29,6 +29,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Create a new tag
+        if: ${{ matrix.platform == 'linux/amd64' }}
         run: |
           git tag ${{ env.RELEASE_IMAGE_TAG }}
           git push origin ${{ env.RELEASE_IMAGE_TAG }}
