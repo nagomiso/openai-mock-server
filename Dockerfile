@@ -14,7 +14,7 @@ RUN <<-eof
     curl -L "https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_$(uname -m)" -o /app/dumb-init
     chmod +x /app/dumb-init
     mkdir -p /app/bin
-    curl -L "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_$(uname -m | sed 's/aarch64/arm64/')" -o /app/bin/yq
+    curl -L "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_$(uname -m | sed 's/aarch64/arm64/' | sed 's/x86_64/amd64/')" -o /app/bin/yq
     chmod +x /app/bin/yq
     chmod +x /app/entrypoint.sh
 eof
