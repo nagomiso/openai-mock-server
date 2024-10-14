@@ -38,3 +38,8 @@ is an example of a script that patches the response content of the `POST /chat/c
 }'
 {"id":"string","choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello World!!","refusal":"string","tool_calls":[{"id":"string","type":"function","function":{"name":"string","arguments":"string"}}],"role":"assistant","function_call":{"arguments":"string","name":"string"}},"logprobs":{"content":[{"token":"string","logprob":0,"bytes":[0],"top_logprobs":[{"token":"string","logprob":0,"bytes":[0]}]}],"refusal":[{"token":"string","logprob":0,"bytes":[0],"top_logprobs":[{"token":"string","logprob":0,"bytes":[0]}]}]}}],"created":0,"model":"string","service_tier":"scale","system_fingerprint":"string","object":"chat.completion","usage":{"completion_tokens":0,"prompt_tokens":0,"total_tokens":0,"completion_tokens_details":{"reasoning_tokens":0}}}%
 ```
+
+## Image tags
+
+- `vYYYY.mm.dd-{openai-openapi commit hash}`: The image is released.
+- `latest`: The image is latest released.
