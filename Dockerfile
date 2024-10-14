@@ -23,14 +23,11 @@ COPY openai-openapi/openapi.yaml /app/openapi.yaml
 ARG NODE_IMAGE_TAG
 FROM node:${NODE_IMAGE_TAG}-slim
 
-ARG UID=1001
-ARG GID=1001
 ENV PATH="/app/bin:${PATH}"
 
 RUN <<-eof
     set -eux
-    groupadd -g ${GID} worker
-    useradd -m -u ${UID} -g ${GID} worker
+    useradd -m worker
 eof
 USER worker
 WORKDIR /app
