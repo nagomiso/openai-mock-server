@@ -1,7 +1,10 @@
-# OpenAI mock server
+# OpenAI mock server image
 
-This repository manages image definitions for launching
-a mock server based on the schema information of [openai/openai-openapi](https://github.com/openai/openai-openapi).
+This repository contains image definitions for using a simple mock OpenAI API server.
+
+## Overview
+
+This project leverages the OpenAPI schema from [openai/openai-openapi](https://github.com/openai/openai-openapi) and utilizes [stoplightio/prism](https://github.com/stoplightio/prism) to create a simple mock server for OpenAI's API. As a simple mock server, it does not support advanced mocking capabilities.
 
 ## Usage
 
@@ -17,7 +20,9 @@ please mount a shell script in `/docker-entrypoint.d`.
 is an example of a script that patches the response content of the `POST /chat/completions` endpoint.
 
 ```bash
-❯ docker run -it --rm -p 4010:4010 -v $(pwd)/docker-entrypoint.d:/docker-entrypoint.d ghcr.io/nagomiso/openai-mock-server:nightly
+❯ docker run -it --rm -p 4010:4010 \
+    -v $(pwd)/docker-entrypoint.d:/docker-entrypoint.d \
+    ghcr.io/nagomiso/openai-mock-server:nightly
 ❯ curl -X POST \
   --url http://localhost:4010/chat/completions \
   --header 'Authorization: Bearer xxxxxx' \
