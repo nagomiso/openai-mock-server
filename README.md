@@ -4,7 +4,7 @@ This repository contains image definitions for using a simple mock OpenAI API se
 
 ## Overview
 
-This project leverages the OpenAPI schema from [openai/openai-openapi](https://github.com/openai/openai-openapi) and utilizes [stoplightio/prism](https://github.com/stoplightio/prism) to create a simple mock server for OpenAI's API. As a simple mock server, it does not support advanced mocking capabilities.
+The image uses [openai/openai-openapi](https://github.com/openai/openai-openapi) & [stoplightio/prism](https://github.com/stoplightio/prism) to create a simple mock server for OpenAI's API. As a simple mock server, it does not support advanced mocking.
 
 ## Usage
 
