@@ -9,7 +9,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     if: |
-      github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'release')
+      github.event.pull_request.merged && !contains(github.event.pull_request.labels.*.name, 'no-release')
     steps:
       - uses: actions/checkout@v4.2.1
         with:
